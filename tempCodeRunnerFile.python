@@ -1,0 +1,26 @@
+def max_sub_rem(n,sub,main_sub):
+    cnt=0
+    while True:
+        rem=False
+        for s in sub:
+            i=main_sub.find(s)
+            if i != -1: 
+                main_sub = main_sub[:i] + main_sub[i + len(s):]
+                cnt += 1  
+                rem = True  
+                break  
+        if not rem: 
+            break
+    return cnt
+
+
+# Example usage
+n1 = 6
+substrings1 = ["hd", "el", "llo", "wor", "ell", "lds"]
+main_string1 = "helloworlds"
+print(max_sub_rem(n1, substrings1, main_string1))  # Output: 4
+
+n2 = 7
+substrings2 = ["ggc", "rm", "oo", "le", "glh", "oog", "ec"]
+main_string2 = "googlechrome"
+print(max_substrings_removed(n2, substrings2, main_string2))  # Output: 3
